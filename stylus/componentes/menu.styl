@@ -43,17 +43,18 @@ ancho-submenu = 10em
         transition all .3s
   //Mostrar el submenu
   li:hover > ul > li
-      max-height altura
-      overflow visible
-  // Links del menu
+    max-height altura
+    overflow visible
+    // Links del menu
   a
     color color
     line-height altura
     display block
-    padding 0 (separacion / 2)
+    padding-left (separacion / 2)
+    padding-right (separacion / 2)
     text-decoration none
     // Segundo y tercer nivel
-    ul
+  ul
     background fondo
     position absolute
     width ancho-submenu
@@ -81,8 +82,8 @@ ancho-submenu   = 10em
     margin 0
     padding 0
   li
-    position relative
     &:hover
+      position relative
       background hover
       > ul > li
         max-height altura
