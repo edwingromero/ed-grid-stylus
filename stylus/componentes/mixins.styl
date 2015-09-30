@@ -22,18 +22,18 @@ desde(size)
       {block}
 
 desde-hasta(desde,hasta)
-    if desde in breakpoints and hasta in breakpoints
-      @media screen and (min-width: breakpoints[desde]) and (max-width: breakpoints[hasta] - 1)
-        {block}
-    else if desde in breakpoints and not hasta in breakpoints
-      @media screen and (min-width: breakpoints[desde]) and (max-width: hasta)
-        {block}
-    else if not desde in breakpoints and hasta in breakpoints
-      @media screen and (min-width: desde) and (max-width: breakpoints[hasta] - 1)
-        {block}
-    else
-      @media screen and (min-width: desde) and (max-width: hasta)
-        {block}
+  if desde in breakpoints and hasta in breakpoints
+    @media screen and (min-width: breakpoints[desde]) and (max-width: breakpoints[hasta] - 1)
+      {block}
+  else if desde in breakpoints and (hasta in breakpoints==false)
+    @media screen and (min-width: breakpoints[desde]) and (max-width: hasta)
+      {block}
+  else if (desde in breakpoints == false) and hasta in breakpoints
+    @media screen and (min-width: desde) and (max-width: breakpoints[hasta] - 1)
+      {block}
+  else
+    @media screen and (min-width: desde) and (max-width: hasta)
+      {block}
 
 // Mixins para cuadriculas
 // Se aplica al contendor de la cuadricula.
